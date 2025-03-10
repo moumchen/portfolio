@@ -1,0 +1,53 @@
+{
+    "basic": {
+        "firstName": "Yanqian",
+        "lastName": "Chen",
+        "age": 28,
+        "email": "jaiden.chenyanqian@gmail.com",
+        "phone": "+64 0273991970",
+        "address": "Auckland, New Zealand",
+        "photos": [
+            "images/photos/bw.png",
+            "images/photos/colored.jpg",
+            "images/photos/mobile.png"
+        ],
+        "resume": "https://github.com/moumchen/"
+    },
+    "socials": [
+        {
+            "icon": "fa-brands fa-square-facebook",
+            "url": "https://www.facebook.com/profile.php?id=61570472940715"
+        }
+    ],
+    "about": {
+        "heading": "I'm Yanqian Chen, a Java/Python Developer, ....",
+        "description": "I graduated from Chengdu University of Information Technology in 2020, and then I worked as a Java developer...",
+        "tech": [
+            "Java",
+            "Spring/SpringBoot/SpringCloud",
+            "Python",
+            "HTML/CSS/JavaScript"
+        ],
+        "works": [
+        ]
+    },
+    "services": [
+    ],
+    "projects": [
+        {
+            "banner": "images/projects/quiz-logo.png",
+            "icon": "images/projects/quiz-logo.png",
+            "title": "Online Quiz PK System",
+            "description": "A Web project based on Python Django, introducing AI to generate fun quiz, supporting single and multiplayer quiz game Web applications.",
+            "link": "https://github.com/moumchen/online_quiz_pk_system"
+        }
+    ],
+    "contact": [
+        {
+            "icon": "fa-duotone fa-solid fa-phone",
+            "title": "Phone",
+            "description": "+64 0273991970",
+            "action": "https://wa.me/640273991970"
+        }
+    ]
+}
