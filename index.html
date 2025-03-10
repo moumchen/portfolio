@@ -1,631 +1,722 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <base href="/"/>
     <meta charset="utf-8"/>
     <style>
-      @import url(https://fonts.googleapis.com/css?family=Montserrat);
-      html, body {
-        font-family: 'Montserrat', sans-serif;
-        width: 100%;
-        min-height: 100vh;
-        padding: 0;
-        margin: 0;
-      }
-      h1 {
-        font-size: 4rem;
-        margin: unset;
-      }
-      @font-face {
-        font-family: "Agustina";
-        src: url(fonts/agustina/agustina.otf);
-      }
-      ::-webkit-scrollbar {
-        width: 8px;
-        height: 0px;
-      }
-      ::-webkit-scrollbar-track {
-        border-radius: 8px;
-      }
-      ::-webkit-scrollbar-thumb {
-        border-radius: 8px;
-        background-color: #C0392B;
-      }
+        @import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+        html, body {
+            font-family: 'Montserrat', sans-serif;
+            width: 100%;
+            min-height: 100vh;
+            padding: 0;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin: unset;
+        }
+
+        @font-face {
+            font-family: "Agustina";
+            src: url(fonts/agustina/agustina.otf);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 0px;
+        }
+
+        ::-webkit-scrollbar-track {
+            border-radius: 8px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            border-radius: 8px;
+            background-color: #C0392B;
+        }
     </style>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet"/>
     <!--$-->
     <title>Yanqian Chen's Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <meta name="og:title" content="Yanqian Chen's "Portfolio/>
+    <meta name="og:title" content="Yanqian Chen's " Portfolio/>
     <!--/-->
     <script src="app.client.dart.js" defer></script>
     <style>
-      .app-button {
-        padding: 10px;
-        width: 100px;
-        border: solid #C0392B 1px;
-        border-radius: 6px;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        text-decoration: none;
-        background-color: transparent;
-      }
-      .app-button:hover {
-        background-color: #C0392B;
-        cursor: pointer;
-        transition: background-color 500ms;
-      }
-      .label {
-        font-size: 12px;
-      }
-      .contact-card {
-        text-decoration: none;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 15px;
-        margin-top: 25px;
-        margin-left: 15px;
-        margin-right: 15px;
-        width: 300px;
-        height: 150px;
-        border-radius: 12px;
-        background-color: #212121;
-      }
-      .contact-card:hover {
-        box-shadow: 0px 0px 8px 2px #C0392B;
-        transition: box-shadow 500ms;
-      }
-      .c-icon {
-        color: #C0392B;
-        font-size: 50px;
-      }
-      .c-title {
-        color: #C0392B;
-        font-size: 15px;
-        margin-top: 15px;
-        margin-bottom: 15px;
-      }
-      .c-description {
-        font-size: 12px;
-      }
-      .foot {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        padding-top: 2vh;
-        padding-bottom: 2vh;
-        font-size: 12px;
-      }
-      .tech-name {
-        font-size: 12px;
-        text-decoration: none;
-        margin-left: 5px;
-      }
-      .navbar {
-        padding: 25px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        background-color: black;
-      }
-      .navbar-label {
-        padding-right: 35px;
-        font-size: 12px;
-        text-decoration: none;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-      }
-      .navbar-label:hover {
-        color: #C0392B;
-        transition: color 500ms;
-      }
-      .labels {
-        display: flex;
-        flex-direction: row;
-        justify-content: end;
-      }
-      .brand {
-        font-family: 'Agustina';
-        font-size: 24px;
-      }
-      .banner-card {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin-top: 25px;
-        margin-left: 15px;
-        margin-right: 15px;
-        width: 350px;
-        height: 200px;
-        border-radius: 12px;
-        background-color: #212121;
-        text-decoration: none;
-      }
-      .banner-card:hover {
-        box-shadow: 0px 0px 8px 2px #C0392B;
-        cursor: pointer;
-        transition: box-shadow 500ms;
-      }
-      .banner-image {
-        width: 350px;
-        height: 200px;
-      }
-      .service-description {
-        font-size: 12px;
-        text-align: center;
-        padding-left: 10px;
-        padding-right: 10px;
-        margin-top: 10px;
-      }
-      .banner-image {
-        opacity: 1.0;
-        border-radius: 12px;
-        position: absolute;
-      }
-      .banner-image:hover {
-        opacity: 0.0;
-        transition: opacity 500ms;
-      }
-      .service-card {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 15px;
-        margin-top: 25px;
-        margin-left: 15px;
-        margin-right: 15px;
-        width: 250px;
-        height: 200px;
-        border-radius: 12px;
-        background-color: #212121;
-      }
-      .service-title {
-        font-size: 14px;
-        margin-top: 10px;
-      }
-      .service-card:hover {
-        box-shadow: 0px 0px 8px 2px #C0392B;
-        transition: box-shadow 500ms;
-      }
-      .home-body {
-        width: 100vw;
-        background-color: black;
-      }
-      .about-me-section {
-        display: flex;
-        flex-direction: column;
-        justify-content: start;
-        align-items: center;
-        width: 100%;
-      }
-      .play-icon {
-        color: #C0392B;
-      }
-      .title {
-        font-family: 'Montserrat';
-        font-size: 40px;
-        font-weight: 100;
-      }
-      .about-section-body {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        margin-top: 50px;
-        width: 100%;
-      }
-      .profile-picture {
-        background-image: url("images/photos/colored.jpg");
-        background-size: cover;
-        margin-right: 100px;
-        width: 450px;
-        height: 700px;
-      }
-      .about-details {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: start;
-        width: 750px;
-      }
-      .intro-label {
-        font-size: 18px;
-      }
-      .intro-heading {
-        margin-top: 15px;
-        margin-bottom: 15px;
-        font-size: 20px;
-      }
-      .intro-details {
-        color: lightGrey;
-        word-spacing: 1.5px;
-        line-height: 3vh;
-      }
-      .divider {
-        margin-top: 2vh;
-        margin-bottom: 2vh;
-        width: 100%;
-        height: 1px;
-        background-color: lightGrey;
-      }
-      .tech-label {
-        font-size: 12px;
-      }
-      .tech-stack {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: start;
-        align-items: center;
-        margin-top: 15px;
-      }
-      .tech-item {
-        margin-left: 5px;
-        margin-right: 12px;
-        font-size: 14px;
-      }
-      .personal-label {
-        font-size: 12px;
-        font-weight: bold;
-      }
-      .personal-value {
-        font-size: 12px;
-      }
-      .personal-row {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-      }
-      .work-row {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-      }
-      @media screen and (max-width: 1350px) {
-      .profile-picture {
-        margin-left: 50px;
-        margin-right: 50px;
-        max-height: 100%;
-      }
-      .about-details {
-        width: 45vw;
-      }
-      }
-      @media screen and (max-width: 1100px) {
-      .profile-picture {
-        margin-left: 30px;
-        margin-right: 30px;
-        width: 400px;
-        max-height: 80%;
-      }
-      .about-details {
-        width: 45vw;
-      }
-      }
-      @media screen and (max-width: 900px) {
-      .about-me-section {
-        padding-top: 3vh;
-        padding-right: 0vw;
-      }
-      .about-section-body {
-        display: flex;
-        flex-direction: column;
-        justify-content: start;
-        align-items: center;
-      }
-      .profile-picture {
-        background-image: url("images/photos/mobile.png");
-        background-size: cover;
-        width: 250px;
-        height: 250px;
-      }
-      .about-details {
-        margin-top: 40px;
-        width: 80%;
-      }
-      }
-      .info-section {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding-left: 10vw;
-      }
-      .welcome {
-        margin-bottom: 2.5vh;
-        display: flex;
-        align-items: end;
-      }
-      .welcome-text {
-        padding-right: 12px;
-        padding-bottom: 2px;
-        font-family: 'Montserrat';
-        font-size: 20px;
-      }
-      .first-name {
-        padding-top: 3vh;
-        font-family: 'Montserrat';
-        font-weight: 100;
-        line-height: 3vh;
-      }
-      @font-face {
-        font-family: "PoppinsBold";
-        src: url(/fonts/poppins/Poppins-Bold.ttf);
-      }
-      .last-name {
-        font-family: 'PoppinsBold';
-        font-weight: bolder;
-      }
-      .main-image {
-        width: 75vh;
-        height: 85vh;
-        background-image: url("images/photos/black-white.png");
-        background-size: cover;
-      }
-      .play-icon {
-        color: #C0392B;
-      }
-      .subtitle {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-      }
-      .dynamic-subtitles {
-        margin-left: 15px;
-        font-size: 18px;
-      }
-      .socials {
-        padding-top: 2vh;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-      }
-      .social-icon {
-        color: white;
-        font-size: 25px;
-        padding-right: 25px;
-      }
-      .social-icon:hover {
-        color: #C0392B;
-        transition: color 300ms;
-      }
-      @media screen and (max-width: 1100px) {
-      .welcome-text {
-        font-size: 15px;
-      }
-      .first-name {
-        font-size: 50px;
-      }
-      .last-name {
-        font-size: 50px;
-      }
-      .dynamic-subtitles {
-        font-size: 14px;
-      }
-      .main-image {
-        width: 55vh;
-        height: 65vh;
-      }
-      .play-icon {
-        height: 15px;
-      }
-      }
-      @media screen and (max-width: 786px) {
-      .info-section {
-        display: flex;
-        flex-direction: column;
-      }
-      .main-image {
-        width: 45vh;
-        height: 55vh;
-        align-self: end;
-      }
-      .info {
-        align-self: start;
-      }
-      }
-      .contact-section {
-        display: flex;
-        flex-direction: column;
-        justify-content: start;
-        align-items: center;
-        padding: 5vh 10vw;
-      }
-      .contact-body {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        margin-top: 50px;
-        width: 100%;
-      }
-      .projects-section {
-        display: flex;
-        flex-direction: column;
-        justify-content: start;
-        align-items: center;
-        padding: 5vh 10vw;
-      }
-      .section-body-projects {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        margin-top: 50px;
-        width: 100%;
-      }
-      .services-section {
-        display: flex;
-        flex-direction: column;
-        justify-content: start;
-        align-items: center;
-        padding-top: 5vh;
-        padding-bottom: 5vh;
-      }
-      .section-body {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        margin-top: 50px;
-        width: 100%;
-      }
-      .main p {
-        color: white;
-      }
-      .main a {
-        color: white;
-      }
-      .main h1 {
-        color: white;
-      }
-      .main h2 {
-        color: white;
-      }
-      .main span {
-        color: white;
-      }
-      <img src="images/projects/quiz-logo.png" height="500" width="500"/></style>
-  </head>
-  <body>
-    <!--$app-->
-    <div class="main">
-      <div class="home-body">
+        .app-button {
+            padding: 10px;
+            width: 100px;
+            border: solid #C0392B 1px;
+            border-radius: 6px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            background-color: transparent;
+        }
+
+        .app-button:hover {
+            background-color: #C0392B;
+            cursor: pointer;
+            transition: background-color 500ms;
+        }
+
+        .label {
+            font-size: 12px;
+        }
+
+        .contact-card {
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+            margin-top: 25px;
+            margin-left: 15px;
+            margin-right: 15px;
+            width: 300px;
+            height: 150px;
+            border-radius: 12px;
+            background-color: #212121;
+        }
+
+        .contact-card:hover {
+            box-shadow: 0px 0px 8px 2px #C0392B;
+            transition: box-shadow 500ms;
+        }
+
+        .c-icon {
+            color: #C0392B;
+            font-size: 50px;
+        }
+
+        .c-title {
+            color: #C0392B;
+            font-size: 15px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .c-description {
+            font-size: 12px;
+        }
+
+        .foot {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding-top: 2vh;
+            padding-bottom: 2vh;
+            font-size: 12px;
+        }
+
+        .tech-name {
+            font-size: 12px;
+            text-decoration: none;
+            margin-left: 5px;
+        }
+
+        .navbar {
+            padding: 25px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            background-color: black;
+        }
+
+        .navbar-label {
+            padding-right: 35px;
+            font-size: 12px;
+            text-decoration: none;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-label:hover {
+            color: #C0392B;
+            transition: color 500ms;
+        }
+
+        .labels {
+            display: flex;
+            flex-direction: row;
+            justify-content: end;
+        }
+
+        .brand {
+            font-family: 'Agustina';
+            font-size: 24px;
+        }
+
+        .banner-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 25px;
+            margin-left: 15px;
+            margin-right: 15px;
+            width: 350px;
+            height: 200px;
+            border-radius: 12px;
+            background-color: #212121;
+            text-decoration: none;
+        }
+
+        .banner-card:hover {
+            box-shadow: 0px 0px 8px 2px #C0392B;
+            cursor: pointer;
+            transition: box-shadow 500ms;
+        }
+
+        .banner-image {
+            width: 350px;
+            height: 200px;
+        }
+
+        .service-description {
+            font-size: 12px;
+            text-align: center;
+            padding-left: 10px;
+            padding-right: 10px;
+            margin-top: 10px;
+        }
+
+        .banner-image {
+            opacity: 1.0;
+            border-radius: 12px;
+            position: absolute;
+        }
+
+        .banner-image:hover {
+            opacity: 0.0;
+            transition: opacity 500ms;
+        }
+
+        .service-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+            margin-top: 25px;
+            margin-left: 15px;
+            margin-right: 15px;
+            width: 250px;
+            height: 200px;
+            border-radius: 12px;
+            background-color: #212121;
+        }
+
+        .service-title {
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .service-card:hover {
+            box-shadow: 0px 0px 8px 2px #C0392B;
+            transition: box-shadow 500ms;
+        }
+
+        .home-body {
+            width: 100vw;
+            background-color: black;
+        }
+
+        .about-me-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: center;
+            width: 100%;
+        }
+
+        .play-icon {
+            color: #C0392B;
+        }
+
+        .title {
+            font-family: 'Montserrat';
+            font-size: 40px;
+            font-weight: 100;
+        }
+
+        .about-section-body {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+            width: 100%;
+        }
+
+        .profile-picture {
+            background-image: url("https://moumchen.github.io/portfolio/images/photos/colored.jpg");
+            background-size: cover;
+            margin-right: 100px;
+            width: 450px;
+            height: 700px;
+        }
+
+        .about-details {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: start;
+            width: 750px;
+        }
+
+        .intro-label {
+            font-size: 18px;
+        }
+
+        .intro-heading {
+            margin-top: 15px;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .intro-details {
+            color: lightGrey;
+            word-spacing: 1.5px;
+            line-height: 3vh;
+        }
+
+        .divider {
+            margin-top: 2vh;
+            margin-bottom: 2vh;
+            width: 100%;
+            height: 1px;
+            background-color: lightGrey;
+        }
+
+        .tech-label {
+            font-size: 12px;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: start;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .tech-item {
+            margin-left: 5px;
+            margin-right: 12px;
+            font-size: 14px;
+        }
+
+        .personal-label {
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .personal-value {
+            font-size: 12px;
+        }
+
+        .personal-row {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .work-row {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        @media screen and (max-width: 1350px) {
+            .profile-picture {
+                margin-left: 50px;
+                margin-right: 50px;
+                max-height: 100%;
+            }
+
+            .about-details {
+                width: 45vw;
+            }
+        }
+
+        @media screen and (max-width: 1100px) {
+            .profile-picture {
+                margin-left: 30px;
+                margin-right: 30px;
+                width: 400px;
+                max-height: 80%;
+            }
+
+            .about-details {
+                width: 45vw;
+            }
+        }
+
+        @media screen and (max-width: 900px) {
+            .about-me-section {
+                padding-top: 3vh;
+                padding-right: 0vw;
+            }
+
+            .about-section-body {
+                display: flex;
+                flex-direction: column;
+                justify-content: start;
+                align-items: center;
+            }
+
+            .profile-picture {
+                background-image: url("https://moumchen.github.io/portfolio/images/photos/mobile.png");
+                background-size: cover;
+                width: 250px;
+                height: 250px;
+            }
+
+            .about-details {
+                margin-top: 40px;
+                width: 80%;
+            }
+        }
+
+        .info-section {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding-left: 10vw;
+        }
+
+        .welcome {
+            margin-bottom: 2.5vh;
+            display: flex;
+            align-items: end;
+        }
+
+        .welcome-text {
+            padding-right: 12px;
+            padding-bottom: 2px;
+            font-family: 'Montserrat';
+            font-size: 20px;
+        }
+
+        .first-name {
+            padding-top: 3vh;
+            font-family: 'Montserrat';
+            font-weight: 100;
+            line-height: 3vh;
+        }
+
+        @font-face {
+            font-family: "PoppinsBold";
+            src: url(/fonts/poppins/Poppins-Bold.ttf);
+        }
+
+        .last-name {
+            font-family: 'PoppinsBold';
+            font-weight: bolder;
+        }
+
+        .main-image {
+            width: 75vh;
+            height: 85vh;
+            background-image: url("https://moumchen.github.io/portfolio/images/photos/black-white.png");
+            background-size: cover;
+        }
+
+        .play-icon {
+            color: #C0392B;
+        }
+
+        .subtitle {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .dynamic-subtitles {
+            margin-left: 15px;
+            font-size: 18px;
+        }
+
+        .socials {
+            padding-top: 2vh;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .social-icon {
+            color: white;
+            font-size: 25px;
+            padding-right: 25px;
+        }
+
+        .social-icon:hover {
+            color: #C0392B;
+            transition: color 300ms;
+        }
+
+        @media screen and (max-width: 1100px) {
+            .welcome-text {
+                font-size: 15px;
+            }
+
+            .first-name {
+                font-size: 50px;
+            }
+
+            .last-name {
+                font-size: 50px;
+            }
+
+            .dynamic-subtitles {
+                font-size: 14px;
+            }
+
+            .main-image {
+                width: 55vh;
+                height: 65vh;
+            }
+
+            .play-icon {
+                height: 15px;
+            }
+        }
+
+        @media screen and (max-width: 786px) {
+            .info-section {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .main-image {
+                width: 45vh;
+                height: 55vh;
+                align-self: end;
+            }
+
+            .info {
+                align-self: start;
+            }
+        }
+
+        .contact-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: center;
+            padding: 5vh 10vw;
+        }
+
+        .contact-body {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+            width: 100%;
+        }
+
+        .projects-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: center;
+            padding: 5vh 10vw;
+        }
+
+        .section-body-projects {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+            width: 100%;
+        }
+
+        .services-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: center;
+            padding-top: 5vh;
+            padding-bottom: 5vh;
+        }
+
+        .section-body {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+            width: 100%;
+        }
+
+        .main p {
+            color: white;
+        }
+
+        .main a {
+            color: white;
+        }
+
+        .main h1 {
+            color: white;
+        }
+
+        .main h2 {
+            color: white;
+        }
+
+        .main span {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<!--$app-->
+<div class="main">
+    <div class="home-body">
         <section class="navbar">
-          <div><span>&lt; </span><span class="brand">Yanqian Chen's Portfolio</span><span> &#47;&gt;</span></div>
-          <div class="labels">
-            <a class="navbar-label" href="#">HOME</a>
-            <a class="navbar-label" href="#about">ABOUT</a>
-            <a class="navbar-label" href="#services">SERVICES</a>
-            <a class="navbar-label" href="#projects">PROJECTS</a>
-            <a class="navbar-label" href="#contact">CONTACT</a>
-            <a class="app-button" href="https://github.com/moumchen" target="_blank"><span class="label">Github Link</span></a>
-          </div>
+            <div><span>&lt; </span><span class="brand">Yanqian Chen's Portfolio</span><span> &#47;&gt;</span></div>
+            <div class="labels">
+                <a class="navbar-label" href="#">HOME</a>
+                <a class="navbar-label" href="#about">ABOUT</a>
+                <a class="navbar-label" href="#services">SERVICES</a>
+                <a class="navbar-label" href="#projects">PROJECTS</a>
+                <a class="navbar-label" href="#contact">CONTACT</a>
+                <a class="app-button" href="https://github.com/moumchen" target="_blank"><span
+                        class="label">Github Link</span></a>
+            </div>
         </section>
         <section class="info-section">
-          <div class="info">
-            <div class="welcome">
-              <span class="welcome-text">WELCOME TO MY PORTFOLIO</span>
-              <img class="wave" height="35" src="images/hi.gif"/>
-            </div>
-            <h1 class="first-name">Yanqian</h1>
-            <h1 class="last-name">Chen</h1>
-            <span class="subtitle">
+            <div class="info">
+                <div class="welcome">
+                    <span class="welcome-text">WELCOME TO MY PORTFOLIO</span>
+                    <img class="wave" height="35" src="https://moumchen.github.io/portfolio/images/hi.gif"/>
+                </div>
+                <h1 class="first-name">Yanqian</h1>
+                <h1 class="last-name">Chen</h1>
+                <span class="subtitle">
               <i class="fa-solid fa-play play-icon"></i>
               <span class="dynamic-subtitles">Flutter Enthusiast</span>
             </span>
-            <div class="socials">
-              <a class="social-icon" href="https://www.facebook.com/profile.php?id=61570472940715" target="_blank"><i class="fa-brands fa-square-facebook"></i></a>
+                <div class="socials">
+                    <a class="social-icon" href="https://www.facebook.com/profile.php?id=61570472940715"
+                       target="_blank"><i class="fa-brands fa-square-facebook"></i></a>
+                </div>
             </div>
-          </div>
-          <div class="main-image"></div>
+            <div class="main-image"></div>
         </section>
         <section class="about-me-section">
-          <span id="about" class="title">About Me</span>
-          <span class="subtitle">Get to know me :)</span>
-          <div class="about-section-body">
-            <div class="profile-picture"></div>
-            <div class="about-details">
-              <span class="intro-label" style="color: #C0392B">Who am I?</span>
-              <span class="intro-heading">I&#39;m Yanqian Chen, a Java&#47;Python Developer, ....</span>
-              <span class="intro-details" style="color: lightGrey">
+            <span id="about" class="title">About Me</span>
+            <span class="subtitle">Get to know me :)</span>
+            <div class="about-section-body">
+                <div class="profile-picture"></div>
+                <div class="about-details">
+                    <span class="intro-label" style="color: #C0392B">Who am I?</span>
+                    <span class="intro-heading">I&#39;m Yanqian Chen, a Java&#47;Python Developer, ....</span>
+                    <span class="intro-details" style="color: lightGrey">
                 I graduated from Chengdu University of Information Technology in 2020, and then I worked as a Java developer...
               </span>
-              <div class="divider"></div>
-              <span class="tech-label" style="color: #C0392B">Technologies I have worked with:</span>
-              <div class="tech-stack">
-                <span><i class="fa-solid fa-play play-icon"></i><span class="tech-item">Java</span></span>
-                <span>
+                    <div class="divider"></div>
+                    <span class="tech-label" style="color: #C0392B">Technologies I have worked with:</span>
+                    <div class="tech-stack">
+                        <span><i class="fa-solid fa-play play-icon"></i><span class="tech-item">Java</span></span>
+                        <span>
                   <i class="fa-solid fa-play play-icon"></i>
                   <span class="tech-item">Spring&#47;SpringBoot&#47;SpringCloud</span>
                 </span>
-                <span><i class="fa-solid fa-play play-icon"></i><span class="tech-item">Python</span></span>
-                <span>
+                        <span><i class="fa-solid fa-play play-icon"></i><span class="tech-item">Python</span></span>
+                        <span>
                   <i class="fa-solid fa-play play-icon"></i>
                   <span class="tech-item">HTML&#47;CSS&#47;JavaScript</span>
                 </span>
-              </div>
-              <div class="divider"></div>
-              <div class="personal-row">
-                <div>
-                  <span class="personal-label">Name: </span>
-                  <span class="personal-value">Yanqian Chen</span>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="personal-row">
+                        <div>
+                            <span class="personal-label">Name: </span>
+                            <span class="personal-value">Yanqian Chen</span>
+                        </div>
+                        <div>
+                            <span class="personal-label">Email: </span>
+                            <span class="personal-value">jaiden.chenyanqian@gmail.com</span>
+                        </div>
+                    </div>
+                    <div style="height: 15px"></div>
+                    <div class="personal-row">
+                        <div><span class="personal-label">Age: </span><span class="personal-value">28</span></div>
+                        <div>
+                            <span class="personal-label">From: </span>
+                            <span class="personal-value">Auckland, New Zealand</span>
+                        </div>
+                    </div>
+                    <div style="height: 25px"></div>
+                    <div class="work-row">
+                        <a class="app-button" href="https://github.com/moumchen/" target="_blank"><span class="label">RESUME</span></a>
+                        <div class="divider" style="width: 80px"></div>
+                    </div>
                 </div>
-                <div>
-                  <span class="personal-label">Email: </span>
-                  <span class="personal-value">jaiden.chenyanqian@gmail.com</span>
-                </div>
-              </div>
-              <div style="height: 15px"></div>
-              <div class="personal-row">
-                <div><span class="personal-label">Age: </span><span class="personal-value">28</span></div>
-                <div>
-                  <span class="personal-label">From: </span>
-                  <span class="personal-value">Auckland, New Zealand</span>
-                </div>
-              </div>
-              <div style="height: 25px"></div>
-              <div class="work-row">
-                <a class="app-button" href="https://github.com/moumchen/" target="_blank"><span class="label">RESUME</span></a>
-                <div class="divider" style="width: 80px"></div>
-              </div>
             </div>
-          </div>
         </section>
         <section class="services-section">
-          <span class="title">What I can do?</span>
-          <span class="subtitle">I may not be perfect but surely I&#39;m of some use :)</span>
-          <div id="services" class="section-body"></div>
+            <span class="title">What I can do?</span>
+            <span class="subtitle">I may not be perfect but surely I&#39;m of some use :)</span>
+            <div id="services" class="section-body"></div>
         </section>
         <section class="projects-section">
-          <span class="title">Portfolio</span>
-          <span class="subtitle">Here are few samples of my work :)</span>
-          <div id="projects" class="section-body-projects">
-            <a class="banner-card" href="https://github.com/moumchen/online_quiz_pk_system" target="_blank">
-              <div class="banner-image" style="background-image: url(/images/projects/quiz-logo.png); background-size: cover"></div>
-              <img height="40" src="images/projects/quiz-logo.png"/>
-              <span class="service-title">Online Quiz PK System</span>
-              <span class="service-description">
+            <span class="title">Portfolio</span>
+            <span class="subtitle">Here are few samples of my work :)</span>
+            <div id="projects" class="section-body-projects">
+                <a class="banner-card" href="https://github.com/moumchen/online_quiz_pk_system" target="_blank">
+                    <div class="banner-image"></div>
+                    <img height="40" src="https://moumchen.github.io/portfolio/images/projects/quiz-logo.png"/>
+                    <span class="service-title">Online Quiz PK System</span>
+                    <span class="service-description">
                 A Web project based on Python Django, introducing AI to generate fun quiz, supporting single and multiplayer quiz game Web applications.
               </span>
-            </a>
-          </div>
-          <div style="height: 45px"></div>
-          <a class="app-button" href="https://github.com/mhmzdev" target="_blank"><span class="label">See more</span></a>
+                </a>
+            </div>
+            <div style="height: 45px"></div>
+            <a class="app-button" href="https://github.com/mhmzdev" target="_blank"><span class="label">See more</span></a>
         </section>
         <section class="contact-section">
-          <span class="title">Get in Touch</span>
-          <span class="subtitle">Let&#39;s build something together :)</span>
-          <div id="contact" class="contact-body">
-            <a class="contact-card" href="https://wa.me/640273991970" target="_blank">
-              <i class="fa-duotone fa-solid fa-phone c-icon"></i>
-              <span class="c-title">Phone</span>
-              <span class="c-description">+64 0273991970</span>
-            </a>
-          </div>
+            <span class="title">Get in Touch</span>
+            <span class="subtitle">Let&#39;s build something together :)</span>
+            <div id="contact" class="contact-body">
+                <a class="contact-card" href="https://wa.me/640273991970" target="_blank">
+                    <i class="fa-duotone fa-solid fa-phone c-icon"></i>
+                    <span class="c-title">Phone</span>
+                    <span class="c-description">+64 0273991970</span>
+                </a>
+            </div>
         </section>
         <footer class="foot">
-          <span>Developed in 💙 with</span>
-          <a class="tech-name" style="color: #1977d1" href="https://docs.page/schultek/jaspr" target="_blank">Jaspr</a>
+            <span>Developed in 💙 with</span>
+            <a class="tech-name" style="color: #1977d1" href="https://docs.page/schultek/jaspr"
+               target="_blank">Jaspr</a>
         </footer>
-      </div>
     </div>
-    <!--/$app-->
-  </body>
+</div>
+<!--/$app-->
+</body>
 </html>
